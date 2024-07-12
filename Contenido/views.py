@@ -10,8 +10,10 @@ def vistaInicio(request):
     return render(request, 'content/inicio.html', context)
 
 def vistaLibros(request):
-    context = {}
-    return render(request, 'content/libros.html')
+    context = {
+        "Libros": Libro.objects.all()
+    }
+    return render(request, 'content/libros.html', context)
 
 def vistaAutores(request):
     context = {}

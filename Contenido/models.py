@@ -3,9 +3,11 @@ from django.db import models
 # Create your models here.
 
 class Libro(models.Model):
+    codigo = models.TextField()
     titulo = models.CharField(max_length=50)
     publicacion = models.DateField()
     descripcion = models.TextField()
+    imagen = models.TextField()
 
 class Autor(models.Model):
     nombre = models.CharField(max_length=70)
