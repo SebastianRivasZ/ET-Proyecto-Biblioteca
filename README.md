@@ -1,8 +1,14 @@
 > [!NOTE]
 > Debes ejecutar esto antes de comenzar a trabajar con el projecto
 
+> Creacion del entorno del Proyecto
 ```python
 python -v venv myenv
+```
+
+> Activacion del Entorno del Proyecto
+```python
+/myenv/Scripts/activate
 ```
 
 > Instalacion de las Dependencias del Proyecto
