@@ -1,93 +1,133 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Biblioteca Libre</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Biblioteca Libre</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
 
-    <style>
-        .card:hover {
-            transform: scale(1.1);
-            transition: transform 0.5s;
-        }
+        <style>
+            .card:hover {
+                transform: scale(1.1);
+                transition: transform 0.5s;
+            }
 
-        .card:not(:hover){
-            transform: scale(1);
-            transition: transform 0.5s;
-        }
-    </style>
-</head>
-<body>
-    <!--Barra de navegacion-->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">BiblioRed</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-                <a class="nav-link active" href="Inicio.html">Home <span class="sr-only">(current)</span></a>
-                <a class="nav-link" href="/libros">Libros</a>
-                <a class="nav-link" href="autores.html">Autores</a>
-                <a class="nav-link" href="categorias.html">Categorias</a>
+            .card:not(:hover){
+                transform: scale(1);
+                transition: transform 0.5s;
+            }
+
+            .bookDesc {
+                font-family: Roboto, Helvetica, Arial, Helvetica, sans-serif;
+                font-size: 0.875rem;
+                font-weight: 400;
+                line-height: 1.25rem;
+                display: -webkit-box;
+                overflow: hidden;
+            }
+        </style>
+    </head>
+    <body>
+        <!--Barra de navegacion-->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">BiblioRed</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link active" href="Inicio.html">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="/libros">Libros</a>
+                    <a class="nav-link" href="autores.html">Autores</a>
+                    <a class="nav-link" href="categorias.html">Categorias</a>
+                </div>
+            </div>
+        </nav>
+        
+        <!--Carrusel-->
+        <div id="carouselExampleInterval" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active" data-interval="10000">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/d/df/Biblioteca_Barzio.jpg" class="d-block w-100" alt="..." style="height: 70vh; object-fit: cover;">
+                </div>
+                <div class="carousel-item" data-interval="2000">
+                    <img src="https://bibliotecas.udec.cl/wp-content/uploads/2022/06/principal-biblioteca-scaled.jpg" class="d-block w-100" alt="..." style="height: 70vh; object-fit: cover;">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://www.vel.cl/huelen/images/bib_huelen2020.jpg" class="d-block w-100" alt="..." style="height: 70vh; object-fit: cover;">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-target="#carouselExampleInterval" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-target="#carouselExampleInterval" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </button>
+        </div>
+
+        <!--Jumbotron-->
+        <div class="container mt-5">
+            <div class="jumbotron bg-light p-5">
+                <div class="text-center">
+                    <h1 class="display-4">Conoce nuestros Libros</h1>
+                    <p class="lead">Tu espacio de conocimiento, cultura y comunidad.</p>
+                </div>
+            </div>
+
+            <div class="row">
+                {% for Libro in Libros %}
+                <div class="col-lg-4">
+                    <div class="card" style="width: 18rem;" id="{{ Libro.codigo }}">
+                        <img src="{{ Libro.imagen }}" class="card-img-top img-fluid" alt="..." style="max-width: 20rem; max-height: 22rem;">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">{{ Libro.titulo }}</h5>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
             </div>
         </div>
-    </nav>
-    
-    <!--Carrusel-->
-    <div id="carouselExampleInterval" class="carousel slide" data-ride="carousel">
-        <div class="carousel-inner">
-            <div class="carousel-item active" data-interval="10000">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/d/df/Biblioteca_Barzio.jpg" class="d-block w-100" alt="..." style="height: 70vh; object-fit: cover;">
-            </div>
-            <div class="carousel-item" data-interval="2000">
-                <img src="https://bibliotecas.udec.cl/wp-content/uploads/2022/06/principal-biblioteca-scaled.jpg" class="d-block w-100" alt="..." style="height: 70vh; object-fit: cover;">
-            </div>
-            <div class="carousel-item">
-                <img src="https://www.vel.cl/huelen/images/bib_huelen2020.jpg" class="d-block w-100" alt="..." style="height: 70vh; object-fit: cover;">
-            </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-target="#carouselExampleInterval" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-target="#carouselExampleInterval" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-        </button>
-    </div>
 
-    <!--Jumbotron-->
-    <div class="container mt-5">
-        <div class="jumbotron bg-light p-5">
-            <div class="text-center">
-                <h1 class="display-4">Conoce nuestros Libros</h1>
-                <p class="lead">Tu espacio de conocimiento, cultura y comunidad.</p>
-            </div>
-        </div>
-
-        <div class="row">
-            {% for Libro in Libros %}
-            <div class="col-lg-4">
-                <div class="card" style="width: 18rem;" id="{{ Libro.codigo }}">
-                    <img src="{{ Libro.imagen }}" class="card-img-top img-fluid" alt="..." style="max-width: 20rem; max-height: 22rem;">
-                    <div class="card-body">
-                        <h5 class="card-title text-center">{{ Libro.titulo }}</h5>
+        <div class="modal fade" id="bookModal" tabindex="-1" aria-labelledby="bookModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="bookTitle">Detalles del Libro</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <img src="" id="bookCover" class="card-img-top img-fluid" alt="..." style="max-height: 22rem;">
+                            </div>
+                            <div class="col-md-6">
+                                <div class="bookDesc" id="bookDescription"></div>
+                            </div>
+                            <div class="col-md-12 mt-3">
+                                <p class="text-center" id="bookAuthors"></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                     </div>
                 </div>
             </div>
-            {% endfor %}
         </div>
-    </div>
 
-    <!-- Pie de pagina -->
-    <footer class="bg-light text-center py-5">
-        <p>&copy; 2024 Todos los derechos reservados</p>
-        <a href="contacto.html">Contáctenos</a>
-    </footer>
-</body>
+        <!-- Pie de pagina -->
+        <footer class="bg-light text-center py-5">
+            <p>&copy; 2024 Todos los derechos reservados</p>
+            <a href="contacto.html">Contáctenos</a>
+        </footer>
+    </body>
+
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+    <script src="static/Script.js"></script>
 </html>
