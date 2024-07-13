@@ -3,7 +3,7 @@
 
 > Creacion del entorno del Proyecto
 ```python
-python -m venv myenv
+python -m venv myvenv
 ```
 
 > Activacion del Entorno del Proyecto
