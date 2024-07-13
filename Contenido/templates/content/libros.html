@@ -5,11 +5,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Biblioteca Libre</title>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
         <style>
             .card:hover {
                 transform: scale(1.1);
                 transition: transform 0.5s;
+
+                cursor: pointer;
             }
 
             .card:not(:hover){
@@ -36,10 +39,9 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-link active" href="Inicio.html">Home <span class="sr-only">(current)</span></a>
-                    <a class="nav-link" href="/libros">Libros</a>
-                    <a class="nav-link" href="autores.html">Autores</a>
-                    <a class="nav-link" href="categorias.html">Categorias</a>
+                    {% for Item in NavItem %}
+                        <a class="nav-link" href="{{ Item.url }}">{{ Item.titulo }}</a>
+                    {% endfor %}
                 </div>
             </div>
         </nav>
@@ -78,8 +80,8 @@
 
             <div class="row">
                 {% for Libro in Libros %}
-                <div class="col-lg-4">
-                    <div class="card" style="width: 18rem;" id="{{ Libro.codigo }}">
+                <div class="col-lg-4" data-aos="fade-up">
+                    <div class="card mt-3" style="width: 18rem;" id="{{ Libro.codigo }}">
                         <img src="{{ Libro.imagen }}" class="card-img-top img-fluid" alt="..." style="max-width: 20rem; max-height: 22rem;">
                         <div class="card-body">
                             <h5 class="card-title text-center">{{ Libro.titulo }}</h5>
@@ -108,7 +110,7 @@
                                 <div class="bookDesc" id="bookDescription"></div>
                             </div>
                             <div class="col-md-12 mt-3">
-                                <p class="text-center" id="bookAuthors"></p>
+                                <div class="text-center" id="bookAuthors"></div>
                             </div>
                         </div>
                     </div>
@@ -126,6 +128,7 @@
         </footer>
     </body>
 
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>

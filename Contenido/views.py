@@ -5,20 +5,27 @@ from .models import *
 
 def vistaInicio(request):
     context = {
-        "Navbar": NavItem.objects.all()
+        "NavItem": NavItem.objects.all()
     }
     return render(request, 'content/inicio.html', context)
 
 def vistaLibros(request):
     context = {
+        "NavItem": NavItem.objects.all(),
         "Libros": Libro.objects.all()
     }
     return render(request, 'content/libros.html', context)
 
 def vistaAutores(request):
-    context = {}
-    return render(request, 'content/autores.html')
+    context = {
+        "NavItem": NavItem.objects.all(),
+        "Autores": Autor.objects.all()
+    }
+    return render(request, 'content/autores.html', context)
 
 def vistaCategorias(request):
-    context = {}
-    return render(request, 'content/categorias.html')
+    context = {
+        "NavItem": NavItem.objects.all(),
+        "Categorias": Categoria.objects.all()
+    }
+    return render(request, 'content/categorias.html', context)

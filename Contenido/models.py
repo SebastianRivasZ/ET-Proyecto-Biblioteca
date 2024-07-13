@@ -12,6 +12,8 @@ class Libro(models.Model):
 class Autor(models.Model):
     nombre = models.CharField(max_length=70)
     nacionalidad = models.CharField(max_length=50)
+    biografia = models.TextField()
+    information = models.TextField()
 
 class Categoria(models.Model):
     nombre = models.CharField(max_length=50)
