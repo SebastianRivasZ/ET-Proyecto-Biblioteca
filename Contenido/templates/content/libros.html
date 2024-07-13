@@ -8,6 +8,13 @@
         <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
         <style>
+            body {
+                background-color: #e8eaeb;
+            }
+
+            footer {
+                background-color: #2b3a40;
+            }
             .card:hover {
                 transform: scale(1.1);
                 transition: transform 0.5s;
@@ -73,8 +80,11 @@
         <div class="container mt-5">
             <div class="jumbotron bg-light p-5">
                 <div class="text-center">
-                    <h1 class="display-4">Conoce nuestros Libros</h1>
-                    <p class="lead">Tu espacio de conocimiento, cultura y comunidad.</p>
+                    <h1 class="display-4">Bienvenidos a la Sección de Libros</h1>
+                    <p><br></p>
+                    <p class="lead">Explora nuestro vasto catálogo de libros que abarca desde clásicos literarios hasta las últimas novedades. En nuestra biblioteca, encontrarás una gran variedad de géneros y autores que te llevarán a mundos fantásticos y te ofrecerán conocimiento en cada página.</p>
+                    <hr class="my-4">
+                    <p>Utiliza nuestra barra de búsqueda para encontrar tu libro favorito, descubre nuevas lecturas a través de nuestras recomendaciones o consulta nuestras categorías para encontrar exactamente lo que necesitas. ¡La aventura de la lectura te espera!</p>
                 </div>
             </div>
 
@@ -120,13 +130,47 @@
                 </div>
             </div>
         </div>
-
-        <!-- Pie de pagina -->
-        <footer class="bg-light text-center py-5">
-            <p>&copy; 2024 Todos los derechos reservados</p>
-            <a href="contacto.html">Contáctenos</a>
-        </footer>
-    </body>
+<p><br></p>
+<p><br></p>
+<!-- Pie de pagina -->
+<div class="text-center py-3" style="background-color: #a7defa;">
+    <div class="container">
+        <div class="row">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">Suscríbete a nuestro Newsletter</h5>
+                        <p class="card-text">Recibe las últimas noticias, eventos y novedades directamente en tu correo electrónico.</p>
+                        <hr class="my-4">
+                        <p>¡Todo ello para nuevas noticias sobre la Biblioteca!</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <form>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Nombre</label>
+                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Email</label>
+                            <input type="password" class="form-control" id="exampleInputPassword1">
+                            <small id="emailHelp" class="form-text text-muted">Nunca compartiremos tu correo electrónico con nadie más.</small>
+                        </div>
+                        <div class="form-group form-check">
+                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                            <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<footer class="text-center py-3">
+    <p style="color: #999;">&copy; 2022 Todos los derechos reservados</p>
+    <a href="contacto.html">Contáctenos</a>
+</footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
